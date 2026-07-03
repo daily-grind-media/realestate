@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Grind Media — Real Estate Media & Marketing Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #080808; --card: #111111; --card-hover: #161616;
+      --border: #1E1E1E; --border-mid: #2A2A2A;
+      --copper: #BB725A; --copper-light: #D4937D;
+      --white: #F5F3F0; --muted: #777777;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --font-condensed: 'Barlow Condensed', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--black); color: var(--white);
+      font-family: var(--font-body); font-size: 16px;
+      line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 1000;
+      pointer-events: none; opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 100px 0; }
+    .copper-rule { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--copper), transparent); opacity: 0.4; }
+    .copper-rule-short { width: 48px; height: 1px; background: var(--copper); }
+    .eyebrow { font-family: var(--font-condensed); font-size: 9px; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase; color: var(--copper); margin-bottom: 20px; display: block; }
+    h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0.03em; line-height: 0.95; }
+    h1 { font-size: clamp(52px, 8vw, 96px); }
+    h2 { font-size: clamp(40px, 6vw, 72px); }
+    h3 { font-size: clamp(24px, 3.5vw, 38px); }
+
+    /* HEADER */
+    .site-header { padding: 72px 0 52px; text-align: center; position: relative; }
+    .brand-lockup { display: inline-block; position: relative; margin-bottom: 28px; }
+    .brand-lockup::before {
+      content: ''; position: absolute; inset: -60px -80px;
+      background: radial-gradient(ellipse at center, rgba(187,114,90,0.12) 0%, transparent 68%);
+      pointer-events: none; animation: logoGlow 5s ease-in-out infinite alternate;
+    }
+    @keyframes logoGlow { from { opacity: 0.5; transform: scale(0.96); } to { opacity: 1; transform: scale(1.04); } }
+    .brand-name { font-family: var(--font-display); font-size: clamp(36px, 6vw, 64px); letter-spacing: 0.22em; color: var(--copper); display: block; position: relative; z-index: 1; line-height: 1; }
+    .brand-rule { display: block; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--copper), transparent); opacity: 0.55; margin-top: 10px; position: relative; z-index: 1; }
+    .header-eyebrow { font-family: var(--font-condensed); font-size: 9px; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+    /* HERO */
+    .hero { padding: 80px 0 100px; text-align: center; }
+    .hero h1 { margin-bottom: 40px; background: linear-gradient(180deg, #F5F3F0 60%, rgba(245,243,240,0.5) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subhead { font-family: var(--font-serif); font-style: italic; font-size: clamp(16px, 2vw, 20px); color: #888; max-width: 640px; margin: 0 auto 40px; line-height: 1.75; }
+    .hero-body { max-width: 600px; margin: 0 auto; font-size: 17px; font-weight: 300; color: #999; line-height: 1.9; letter-spacing: 0.01em; }
+    .hero-body p + p { margin-top: 18px; }
+
+    /* SECTION HEADINGS */
+    .section-heading { margin-bottom: 60px; }
+    .section-heading h2 { background: linear-gradient(180deg, #F5F3F0 60%, rgba(245,243,240,0.4) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .section-intro { max-width: 640px; font-size: 16px; font-weight: 300; color: #888; line-height: 1.9; letter-spacing: 0.01em; margin-top: 24px; }
+    .section-intro strong { color: #C8C4BE; font-weight: 400; }
+
+    /* ── TRANSFORMATION SECTION ── */
+    .transformation-grid {
+      display: grid; grid-template-columns: 1fr 1px 1fr;
+      gap: 0; align-items: stretch; position: relative;
+    }
+    @media (max-width: 760px) { .transformation-grid { grid-template-columns: 1fr; } }
+
+    .transform-divider {
+      background: linear-gradient(180deg, transparent 0%, var(--copper) 20%, var(--copper) 80%, transparent 100%);
+      opacity: 0.3; align-self: stretch;
+    }
+    @media (max-width: 760px) { .transform-divider { display: none; } }
+
+    .transform-card {
+      padding: 44px 40px;
+      display: flex; flex-direction: column;
+    }
+    @media (max-width: 760px) { .transform-card { padding: 32px 0; border-bottom: 1px solid var(--border); } }
+
+    .transform-card-left { background: rgba(255,255,255,0.01); }
+    .transform-card-right { background: rgba(187,114,90,0.03); }
+
+
+
+    .transform-title {
+      font-family: var(--font-condensed); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.38em; text-transform: uppercase; display: block; margin-bottom: 32px;
+    }
+    .transform-title-left { color: #444; }
+    .transform-title-right { color: var(--copper); }
+
+    .transform-steps { display: flex; flex-direction: column; gap: 0; flex: 1; }
+
+    .transform-step { padding: 14px 0; border-bottom: 1px solid #161616; }
+    .transform-step-right { border-bottom-color: rgba(187,114,90,0.12); }
+
+    .transform-step-name {
+      font-family: var(--font-display);
+      font-size: 18px; letter-spacing: 0.04em;
+    }
+    .transform-step-name-left { color: #444; }
+    .transform-step-name-right { color: var(--white); }
+
+    .transform-step-sub {
+      font-family: var(--font-body); font-size: 12px; font-weight: 300;
+      color: #555; letter-spacing: 0.01em; margin-top: 3px; line-height: 1.5;
+    }
+    .transform-step-sub-right { color: #777; }
+
+    .transform-arrow { text-align: center; padding: 6px 0; }
+    .transform-arrow-left { color: #2A2A2A; font-size: 12px; }
+    .transform-arrow-right { color: var(--copper); font-size: 13px; opacity: 0.6; }
+
+    .transform-outcome {
+      margin-top: 28px; padding: 16px 18px;
+    }
+    .transform-outcome-left { border: 1px solid #1A1A1A; }
+    .transform-outcome-right { border: 1px solid rgba(187,114,90,0.25); background: rgba(187,114,90,0.04); }
+
+    .transform-outcome-label {
+      font-family: var(--font-condensed); font-size: 8px; letter-spacing: 0.3em;
+      text-transform: uppercase; display: block; margin-bottom: 5px;
+    }
+    .transform-outcome-label-left { color: #333; }
+    .transform-outcome-label-right { color: var(--copper); opacity: 0.7; }
+
+    .transform-outcome-text {
+      font-family: var(--font-body); font-size: 13px; font-weight: 300;
+      line-height: 1.65;
+    }
+    .transform-outcome-text-left { color: #444; }
+    .transform-outcome-text-right { color: #999; }
+
+    .transform-statement {
+      text-align: center; margin-top: 56px;
+      font-family: var(--font-serif); font-style: italic;
+      font-size: 20px; color: #888; line-height: 1.85;
+    }
+    .transform-statement strong { color: var(--white); font-weight: 400; font-style: normal; }
+
+    /* ── HOW WE WORK ── */
+    .process-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 700px) { .process-flow { grid-template-columns: 1fr; } }
+
+    .process-step {
+      background: var(--card); padding: 36px 30px;
+      position: relative; overflow: hidden;
+      transition: background 0.25s;
+    }
+    .process-step:hover { background: #161616; }
+    .process-step::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--copper), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .process-step:hover::before { opacity: 1; }
+    .process-step-num {
+      font-family: var(--font-serif); font-style: italic; font-size: 11px;
+      color: var(--copper); opacity: 0.6; display: block; margin-bottom: 14px;
+    }
+    .process-step-name {
+      font-family: var(--font-display); font-size: 22px; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 10px;
+    }
+    .process-step-body {
+      font-family: var(--font-body); font-size: 13.5px; font-weight: 300;
+      color: #777; line-height: 1.8;
+    }
+
+    /* ── ECOSYSTEM FLYWHEEL ── */
+    .ecosystem-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    @media (max-width: 700px) { .ecosystem-wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+    .ecosystem-diagram { position: relative; width: 100%; max-width: 400px; margin: 0 auto; aspect-ratio: 1; overflow: visible; }
+    .ecosystem-diagram svg { width: 100%; height: 100%; overflow: visible; }
+
+    .ecosystem-copy { }
+    .ecosystem-copy-lead {
+      font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em;
+      color: var(--white); margin-bottom: 20px; line-height: 1.1;
+    }
+    .ecosystem-copy p {
+      font-family: var(--font-body); font-size: 15px; font-weight: 300;
+      color: #888; line-height: 1.95; letter-spacing: 0.01em;
+    }
+    .ecosystem-copy p + p { margin-top: 16px; }
+    .ecosystem-copy strong { color: #C8C4BE; font-weight: 400; }
+    .ecosystem-axiom {
+      margin-top: 28px; padding: 16px 20px;
+      border-left: 1px solid rgba(187,114,90,0.4);
+    }
+    .ecosystem-axiom-text {
+      font-family: var(--font-serif); font-style: italic;
+      font-size: 16px; color: #999; line-height: 1.7;
+    }
+
+    /* ── WHY DGM COMPARISON ── */
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    @media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; } }
+
+    .why-card { padding: 44px 40px; border: 1px solid var(--border); }
+    .why-card-traditional { background: var(--black); }
+    .why-card-dgm { background: var(--card); border-color: rgba(187,114,90,0.4); position: relative; }
+    .why-card-dgm::before {
+      content: ''; position: absolute; inset: -1px;
+      background: linear-gradient(135deg, rgba(187,114,90,0.07) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .why-card-label {
+      font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.38em;
+      text-transform: uppercase; display: block; margin-bottom: 20px;
+    }
+    .why-card-label-trad { color: #444; }
+    .why-card-label-dgm { color: var(--copper); }
+    .why-card-title {
+      font-family: var(--font-display); font-size: 26px; letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+    .why-card-title-trad { color: #444; }
+    .why-card-title-dgm { color: var(--white); }
+    .why-list { list-style: none; padding: 0; }
+    .why-list li {
+      font-family: var(--font-body); font-size: 14px; font-weight: 300;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 12px; line-height: 1.5;
+    }
+    .why-list-trad li { color: #444; }
+    .why-list-trad li::before { content: '—'; color: #2A2A2A; font-size: 10px; flex-shrink: 0; margin-top: 2px; }
+    .why-list-dgm li { color: #999; }
+    .why-list-dgm li::before { content: '—'; color: rgba(187,114,90,0.5); font-size: 10px; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── PARTNERSHIP CARDS ── */
+    .partnership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 700px) { .partnership-grid { grid-template-columns: 1fr; } }
+
+    .partnership-card { border: 1px solid var(--border-mid); background: var(--card); padding: 44px 40px; position: relative; transition: border-color 0.3s ease; }
+    .partnership-card:hover { border-color: rgba(187,114,90,0.3); }
+    .partnership-card.featured { border-color: rgba(187,114,90,0.5); }
+    .partnership-card.featured::before { content: ''; position: absolute; inset: -1px; background: linear-gradient(135deg, rgba(187,114,90,0.08) 0%, transparent 55%); pointer-events: none; }
+
+    .pcard-label { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--copper); opacity: 0.7; display: block; margin-bottom: 10px; }
+    .pcard-name { font-family: var(--font-display); font-size: 30px; letter-spacing: 0.04em; color: var(--white); line-height: 1.05; margin-bottom: 6px; }
+    .pcard-best { font-family: var(--font-serif); font-style: italic; font-size: 13px; color: #666; margin-bottom: 20px; }
+    .pcard-price { font-family: var(--font-display); font-size: 52px; letter-spacing: 0.01em; color: var(--copper); line-height: 1; margin-bottom: 24px; }
+    .pcard-price sub { font-family: var(--font-condensed); font-size: 12px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; vertical-align: baseline; }
+    .pcard-divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    .pcard-accordion-trigger { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); padding: 10px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; user-select: none; list-style: none; }
+    .pcard-accordion-trigger:hover { color: var(--copper); }
+    .pcard-accordion-trigger .acc-arrow { font-size: 10px; transition: transform 0.25s ease; color: var(--copper); opacity: 0.6; }
+    details[open] .pcard-accordion-trigger .acc-arrow { transform: rotate(180deg); }
+    details[open] .pcard-accordion-trigger { color: var(--copper); border-bottom-color: rgba(187,114,90,0.2); }
+    .pcard-accordion-body { padding: 16px 0 4px; }
+
+    /* SERVICE LIST */
+    .svc-list { list-style: none; padding: 0; }
+    .svc-list li { font-family: var(--font-body); font-size: 13.5px; font-weight: 300; color: #888; padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 12px; line-height: 1.5; letter-spacing: 0.01em; }
+    .svc-list li::before { content: '—'; color: rgba(187,114,90,0.4); font-size: 10px; flex-shrink: 0; margin-top: 2px; }
+    .scope-note { margin-top: 14px; font-family: var(--font-serif); font-style: italic; font-size: 13px; color: #555; line-height: 1.75; padding: 12px 16px; border-left: 1px solid rgba(187,114,90,0.2); background: rgba(187,114,90,0.02); }
+
+    /* SERVICE ACCORDION ROWS */
+    .services-stack { display: flex; flex-direction: column; gap: 2px; }
+    .svc-row { border: 1px solid var(--border); background: var(--card); overflow: hidden; }
+    .svc-row summary { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; cursor: pointer; list-style: none; transition: background 0.2s; gap: 20px; }
+    .svc-row summary::-webkit-details-marker { display: none; }
+    .svc-row summary:hover { background: #141414; }
+    details[open] .svc-row summary { background: #141414; border-bottom: 1px solid var(--border); }
+    .svc-row-left { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .svc-row-name { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; color: var(--white); }
+    .svc-row-tag { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); opacity: 0.7; }
+    .svc-row-right { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+    .svc-row-price { font-family: var(--font-display); font-size: 26px; color: var(--copper); letter-spacing: 0.02em; white-space: nowrap; }
+    .svc-row-arrow { width: 20px; height: 20px; border: 1px solid rgba(187,114,90,0.3); display: flex; align-items: center; justify-content: center; color: var(--copper); font-size: 10px; flex-shrink: 0; transition: transform 0.25s ease, border-color 0.2s; }
+    details[open] .svc-row-arrow { transform: rotate(180deg); border-color: rgba(187,114,90,0.6); }
+    .svc-row-body { padding: 28px 28px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+    @media (max-width: 700px) { .svc-row-body { grid-template-columns: 1fr; } }
+    .svc-body-col-label { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); opacity: 0.65; display: block; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(187,114,90,0.12); }
+    .svc-description { font-family: var(--font-body); font-size: 14px; font-weight: 300; color: #888; line-height: 1.85; letter-spacing: 0.01em; }
+
+    /* LUXURY CAMPAIGNS */
+    .luxury-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 700px) { .luxury-grid { grid-template-columns: 1fr; } }
+    .luxury-card { border: 1px solid rgba(187,114,90,0.35); background: var(--card); padding: 52px 44px; position: relative; overflow: hidden; }
+    .luxury-card::before { content: ''; position: absolute; inset: -1px; background: linear-gradient(135deg, rgba(187,114,90,0.07) 0%, transparent 50%); pointer-events: none; }
+    .luxury-card-eyebrow { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--copper); opacity: 0.7; display: block; margin-bottom: 10px; }
+    .luxury-card-name { font-family: var(--font-display); font-size: 34px; letter-spacing: 0.04em; color: var(--white); line-height: 1.05; }
+    .luxury-card-price { font-family: var(--font-display); font-size: 56px; color: var(--copper); line-height: 1; margin: 20px 0 24px; letter-spacing: 0.01em; }
+    .luxury-card-price sub { font-family: var(--font-condensed); font-size: 12px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; vertical-align: baseline; }
+    .luxury-divider { height: 1px; background: rgba(187,114,90,0.15); margin: 24px 0; }
+
+    /* PROTECTION TILES */
+    .protection-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .protection-tile { background: var(--card); padding: 32px 30px; position: relative; overflow: hidden; transition: background 0.25s; }
+    .protection-tile:hover { background: #161616; }
+    .protection-tile::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--copper), transparent); opacity: 0; transition: opacity 0.3s; }
+    .protection-tile:hover::before { opacity: 1; }
+    .protection-tile-index { font-family: var(--font-serif); font-style: italic; font-size: 11px; color: var(--copper); opacity: 0.7; display: block; margin-bottom: 14px; }
+    .protection-tile-title { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.04em; color: var(--white); margin-bottom: 10px; }
+    .protection-tile-body { font-family: var(--font-body); font-size: 13.5px; font-weight: 300; color: #777; line-height: 1.8; }
+
+    /* FAQ ACCORDIONS */
+    .faq-stack { display: flex; flex-direction: column; gap: 2px; }
+    .faq-row { border: 1px solid var(--border); background: var(--card); overflow: hidden; }
+    .faq-row summary { display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; cursor: pointer; list-style: none; transition: background 0.2s; gap: 20px; }
+    .faq-row summary::-webkit-details-marker { display: none; }
+    .faq-row summary:hover { background: #141414; }
+    details[open] .faq-row summary { background: #141414; border-bottom: 1px solid var(--border); }
+    .faq-question { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.04em; color: var(--white); }
+    .faq-arrow { width: 20px; height: 20px; border: 1px solid rgba(187,114,90,0.3); display: flex; align-items: center; justify-content: center; color: var(--copper); font-size: 10px; flex-shrink: 0; transition: transform 0.25s, border-color 0.2s; }
+    details[open] .faq-arrow { transform: rotate(180deg); border-color: rgba(187,114,90,0.6); }
+    .faq-answer { padding: 22px 28px; font-family: var(--font-body); font-size: 14px; font-weight: 300; color: #888; line-height: 1.9; letter-spacing: 0.01em; }
+
+    /* CLOSING */
+    .closing { text-align: center; padding: 100px 0 80px; }
+    .closing-copy { max-width: 620px; margin: 0 auto 60px; font-family: var(--font-serif); font-size: 20px; font-weight: 300; font-style: italic; color: #888; line-height: 1.9; }
+    .closing-copy p + p { margin-top: 20px; }
+    .closing-lockup { display: inline-block; padding: 30px 52px; position: relative; }
+    .closing-lockup::before, .closing-lockup::after { content: ''; position: absolute; width: 14px; height: 14px; border-color: rgba(187,114,90,0.5); border-style: solid; }
+    .closing-lockup::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
+    .closing-lockup::after  { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+    .corner-tr { position: absolute; top: 0; right: 0; width: 14px; height: 14px; border-top: 1px solid rgba(187,114,90,0.5); border-right: 1px solid rgba(187,114,90,0.5); }
+    .corner-bl { position: absolute; bottom: 0; left: 0; width: 14px; height: 14px; border-bottom: 1px solid rgba(187,114,90,0.5); border-left: 1px solid rgba(187,114,90,0.5); }
+    .closing-lockup-text { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+    .closing-lockup-sub { font-family: var(--font-display); font-size: 30px; letter-spacing: 0.1em; color: var(--white); margin-top: 6px; }
+
+    /* FOOTER */
+    footer { padding: 36px 0 40px; text-align: center; }
+    .footer-wordmark { font-family: var(--font-display); font-size: 13px; letter-spacing: 0.3em; color: rgba(187,114,90,0.35); display: block; margin-bottom: 10px; }
+    .footer-copy { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.12); }
+
+    /* PARTNERSHIP INTRO CALLOUT */
+    .partnership-intro { background: var(--card); border: 1px solid var(--border); padding: 40px 44px; margin-bottom: 52px; position: relative; }
+    .partnership-intro::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--copper), transparent); opacity: 0.5; }
+    .partnership-intro p { font-family: var(--font-body); font-size: 15px; font-weight: 300; color: #888; line-height: 1.9; letter-spacing: 0.01em; }
+    .partnership-intro p + p { margin-top: 16px; }
+    .partnership-intro strong { color: #C8C4BE; font-weight: 400; }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    @media (max-width: 768px) {
+      section { padding: 70px 0; }
+      .container { padding: 0 20px; }
+      .partnership-card { padding: 32px 24px; }
+      .luxury-card { padding: 36px 28px; }
+      .svc-row summary { padding: 16px 20px; }
+      .svc-row-body { padding: 20px 20px; }
+      .closing-lockup { padding: 24px 36px; }
+      .why-card { padding: 32px 24px; }
+      .transform-card { padding: 32px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .brand-lockup::before { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <div class="brand-lockup reveal">
+        <span class="brand-name">Daily Grind Media</span>
+        <span class="brand-rule"></span>
+      </div>
+      <p class="header-eyebrow reveal reveal-delay-1">Real Estate Media &amp; Marketing Guide</p>
+    </div>
+  </header>
+
+  <div class="copper-rule"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow reveal">Strategic Media &amp; Growth</span>
+      <h1 class="reveal reveal-delay-1">Build a Brand<br/>That Compounds</h1>
+      <p class="hero-subhead reveal reveal-delay-2">Premium media production, authority building and client acquisition solutions for real estate professionals, teams, luxury properties and brokerages.</p>
+      <div class="hero-body reveal reveal-delay-3">
+        <p>Most agents invest in photography. <strong style="color:#C8C4BE;font-weight:400;">Top-performing agents invest in authority.</strong></p>
+        <p>We help ambitious real estate professionals build premium brands through strategic media, authority content and client acquisition systems — creating a market presence that earns trust before the first conversation.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       TRANSFORMATION SECTION
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">The Difference</span>
+        <h2>From Content<br/>to Client<br/>Acquisition</h2>
+      </div>
+
+      <div class="transformation-grid reveal reveal-delay-1">
+
+        <!-- LEFT: Traditional -->
+        <div class="transform-card transform-card-left">
+          <span class="transform-title transform-title-left">The Traditional Approach</span>
+          <div class="transform-steps">
+            <div class="transform-step">
+              <p class="transform-step-name transform-step-name-left">Professional Photos</p>
+              <p class="transform-step-sub">Shot for MLS, not for brand.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-left">↓</span></div>
+            <div class="transform-step">
+              <p class="transform-step-name transform-step-name-left">Post on Instagram</p>
+              <p class="transform-step-sub">Inconsistent, unplanned posting.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-left">↓</span></div>
+            <div class="transform-step">
+              <p class="transform-step-name transform-step-name-left">Occasional Listing Videos</p>
+              <p class="transform-step-sub">One-off projects with no strategy.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-left">↓</span></div>
+            <div class="transform-step">
+              <p class="transform-step-name transform-step-name-left">Temporary Attention</p>
+              <p class="transform-step-sub">Visibility that fades in 24 hours.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-left">↓</span></div>
+            <div class="transform-step">
+              <p class="transform-step-name transform-step-name-left">Hope for Referrals</p>
+              <p class="transform-step-sub">No system. No predictability.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-left">↓</span></div>
+            <div class="transform-step" style="border-bottom:none;">
+              <p class="transform-step-name transform-step-name-left">Repeat</p>
+              <p class="transform-step-sub">The same cycle, every time.</p>
+            </div>
+          </div>
+          <div class="transform-outcome transform-outcome-left">
+            <span class="transform-outcome-label transform-outcome-label-left">Result</span>
+            <p class="transform-outcome-text transform-outcome-text-left">Random marketing. Inconsistent visibility. No long-term system.</p>
+          </div>
+        </div>
+
+        <!-- VERTICAL DIVIDER -->
+        <div class="transform-divider"></div>
+
+        <!-- RIGHT: DGM -->
+        <div class="transform-card transform-card-right">
+          <span class="transform-title transform-title-right">The Daily Grind Media Approach</span>
+          <div class="transform-steps">
+            <div class="transform-step transform-step-right">
+              <p class="transform-step-name transform-step-name-right">Brand Strategy</p>
+              <p class="transform-step-sub transform-step-sub-right">Build a clear market position before creating content.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-right">↓</span></div>
+            <div class="transform-step transform-step-right">
+              <p class="transform-step-name transform-step-name-right">Premium Photography &amp; Video</p>
+              <p class="transform-step-sub transform-step-sub-right">Create professional assets that elevate perception.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-right">↓</span></div>
+            <div class="transform-step transform-step-right">
+              <p class="transform-step-name transform-step-name-right">Authority Content</p>
+              <p class="transform-step-sub transform-step-sub-right">Build trust before the first conversation.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-right">↓</span></div>
+            <div class="transform-step transform-step-right">
+              <p class="transform-step-name transform-step-name-right">Website &amp; Digital Presence</p>
+              <p class="transform-step-sub transform-step-sub-right">Give prospects a destination that converts.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-right">↓</span></div>
+            <div class="transform-step transform-step-right">
+              <p class="transform-step-name transform-step-name-right">Lead Generation Systems</p>
+              <p class="transform-step-sub transform-step-sub-right">Capture, nurture and qualify opportunities.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-right">↓</span></div>
+            <div class="transform-step transform-step-right">
+              <p class="transform-step-name transform-step-name-right">Client Acquisition</p>
+              <p class="transform-step-sub transform-step-sub-right">Turn attention into measurable business growth.</p>
+            </div>
+            <div class="transform-arrow"><span class="transform-arrow-right">↓</span></div>
+            <div class="transform-step transform-step-right" style="border-bottom:none;">
+              <p class="transform-step-name transform-step-name-right">Long-Term Market Authority</p>
+              <p class="transform-step-sub transform-step-sub-right">Build a recognizable brand that compounds over time.</p>
+            </div>
+          </div>
+          <div class="transform-outcome transform-outcome-right">
+            <span class="transform-outcome-label transform-outcome-label-right">Result</span>
+            <p class="transform-outcome-text transform-outcome-text-right">An integrated growth system where every asset supports the next — and authority compounds over time.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="transform-statement reveal">
+        "Most agents invest in content.<br/>
+        <strong>The most successful agents invest in systems.</strong>"
+      </p>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       HOW WE WORK
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Our Process</span>
+        <h2>How We<br/>Work</h2>
+        <p class="section-intro">Every engagement begins with a clear process — not just showing up to shoot. We follow a <strong>proven six-step framework</strong> designed to align strategy, production and growth from day one.</p>
+      </div>
+
+      <div class="process-flow reveal">
+        <div class="process-step">
+          <span class="process-step-num">I</span>
+          <p class="process-step-name">Discovery</p>
+          <p class="process-step-body">We learn about your business, goals, market and ideal client — so every creative decision is made with purpose.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-num">II</span>
+          <p class="process-step-name">Strategy</p>
+          <p class="process-step-body">We build a customized media and marketing plan designed around your specific objectives, market position and growth goals.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-num">III</span>
+          <p class="process-step-name">Production</p>
+          <p class="process-step-body">Professional photography, video production and content creation executed to the highest standard within a clearly defined scope.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-num">IV</span>
+          <p class="process-step-name">Distribution</p>
+          <p class="process-step-body">Assets are delivered, optimized and prepared for websites, social platforms and marketing campaigns — ready to deploy.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-num">V</span>
+          <p class="process-step-name">Optimization</p>
+          <p class="process-step-body">We continuously refine messaging, creative assets and performance over time — improving results with every cycle.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-num">VI</span>
+          <p class="process-step-name">Growth</p>
+          <p class="process-step-body">A consistent system that strengthens your brand, builds authority and generates long-term opportunities in your market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       1. FLAGSHIP PARTNERSHIPS
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Flagship Offering</span>
+        <h2>Our Flagship<br/>Partnerships</h2>
+        <p class="section-intro">While every service in this guide can be booked individually, our clients achieve the greatest long-term results through ongoing partnerships. These engagements allow us to consistently build your brand, support your listings, create authority-driven content, and develop marketing systems that compound over time.</p>
+      </div>
+
+      <div class="partnership-intro reveal">
+        <p>Each partnership is structured around a defined monthly scope — so you always know exactly what you're receiving, when it's happening, and what falls outside the agreement. There are no vague deliverables, no unlimited revision expectations, and no scope drift. Every partnership is renewed and refined at the start of each cycle.</p>
+        <p>These are designed for agents and teams who are serious about building a brand — not just marketing a listing.</p>
+      </div>
+
+      <div class="partnership-grid">
+        <div class="partnership-card reveal">
+          <span class="pcard-label">Partnership 01 — Solo Agent</span>
+          <p class="pcard-name">Brand Foundation</p>
+          <p class="pcard-best">For solo agents building consistency and a recognizable brand presence.</p>
+          <div class="pcard-price">$3,000<sub>&nbsp;/ month</sub></div>
+          <div class="pcard-divider"></div>
+          <details><summary class="pcard-accordion-trigger">Deliverables <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><ul class="svc-list"><li>1 monthly content day</li><li>20 edited brand photos</li><li>4 short-form reels</li><li>1 monthly strategy call</li><li>Basic content planning for next cycle</li></ul></div></details>
+          <details><summary class="pcard-accordion-trigger">Scope Protections <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><div class="scope-note">One shoot day per month only. One location unless otherwise scoped. Reel count capped at 4. No daily posting, community management, or ad management included. Unused deliverables do not automatically roll over unless agreed in writing.</div></div></details>
+        </div>
+
+        <div class="partnership-card reveal reveal-delay-1">
+          <span class="pcard-label">Partnership 02 — Agent + Listings</span>
+          <p class="pcard-name">Brand Growth</p>
+          <p class="pcard-best">For agents or small teams needing brand and listing support in a single recurring partnership.</p>
+          <div class="pcard-price">$4,500<sub>&nbsp;/ month</sub></div>
+          <div class="pcard-divider"></div>
+          <details><summary class="pcard-accordion-trigger">Deliverables <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><ul class="svc-list"><li>Everything in Brand Foundation</li><li>1 listing media support allocation per month</li><li>6–8 reels total</li><li>Website update support</li><li>Expanded content planning and campaign ideas</li></ul></div></details>
+          <details><summary class="pcard-accordion-trigger">Scope Protections <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><div class="scope-note">Listing support limited to one standard property allocation per month. Website updates limited to light edits, not rebuilds. Reel range capped at agreed monthly count. Additional listings or rush edits billed separately.</div></div></details>
+        </div>
+
+        <div class="partnership-card featured reveal">
+          <span class="pcard-label">Partnership 03 — Producing Teams</span>
+          <p class="pcard-name">Team Media<br/>Partnership</p>
+          <p class="pcard-best">For producing teams needing consistent, high-volume recurring output for brand, recruiting and listings.</p>
+          <div class="pcard-price">$5,000–$6,500<sub>&nbsp;/ month</sub></div>
+          <div class="pcard-divider"></div>
+          <details><summary class="pcard-accordion-trigger">Deliverables <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><ul class="svc-list"><li>1 team content day</li><li>Team branding photo and video coverage</li><li>6–10 reels per month</li><li>Recruiting and culture assets</li><li>Recurring listing support allocation</li></ul></div></details>
+          <details><summary class="pcard-accordion-trigger">Scope Protections <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><div class="scope-note">Participant count capped in agreement. Listing allocation capped monthly. No unlimited agent-specific mini shoots. Additional team members, office locations, or deliverables trigger scope expansion.</div></div></details>
+        </div>
+
+        <div class="partnership-card featured reveal reveal-delay-1">
+          <span class="pcard-label">Partnership 04 — Full Authority System</span>
+          <p class="pcard-name">Market<br/>Authority</p>
+          <p class="pcard-best">For established agents and teams focused on authority, consistency and client acquisition at the highest level.</p>
+          <div class="pcard-price">$6,500–$8,500+<sub>&nbsp;/ month</sub></div>
+          <div class="pcard-divider"></div>
+          <details><summary class="pcard-accordion-trigger">Deliverables <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><ul class="svc-list"><li>Monthly authority content production</li><li>Podcast support or long-form authority asset</li><li>Funnel and landing page optimization</li><li>Website support</li><li>Paid ads oversight</li><li>Quarterly planning session</li></ul></div></details>
+          <details><summary class="pcard-accordion-trigger">Scope Protections <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><div class="scope-note">Paid media spend excluded. Podcast cadence fixed in agreement. Funnel work limited to optimization, not full rebuilds unless scoped. Quarterly planning does not include unlimited consulting access. Communication managed through scheduled calls and agreed channel, not ad hoc unlimited access.</div></div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       LUXURY LISTING CAMPAIGNS
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Luxury Listing Campaigns</span>
+        <h2>Not a Shoot.<br/>A Campaign<br/>Launch.</h2>
+        <p class="section-intro">Luxury properties deserve launch campaigns — not standard listing media. <strong>These are not packages — they are productions.</strong> Each is built around a creative concept, a production plan, and a complete asset set designed to position a listing at the level of its market value and attract the right buyer audience.</p>
+      </div>
+
+      <div class="luxury-grid">
+        <div class="luxury-card reveal">
+          <span class="luxury-card-eyebrow">Campaign 01</span>
+          <p class="luxury-card-name">Luxury Listing Launch</p>
+          <div class="luxury-card-price">$5,000+<sub>&nbsp;/ campaign</sub></div>
+          <p style="font-family:var(--font-body);font-size:14px;font-weight:300;color:#888;line-height:1.85;letter-spacing:0.01em;margin-bottom:20px;">A complete campaign launch for premium residential listings. Opens with a creative strategy call to align the concept direction, then delivers a full production package — cinematic property film, aerial coverage, vertical social assets, and a launch-ready delivery set designed to position the listing above every competing property in its price range.</p>
+          <div class="luxury-divider"></div>
+          <details><summary class="pcard-accordion-trigger">Campaign Deliverables <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><ul class="svc-list"><li>Creative strategy call</li><li>Cinematic property film</li><li>Drone coverage</li><li>Vertical teaser assets</li><li>Horizontal campaign film</li><li>Social delivery set</li><li>Launch-ready asset package</li></ul></div></details>
+          <details><summary class="pcard-accordion-trigger">Scope Protections <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><div class="scope-note">One property campaign. One approved concept direction. Talent, staging, paid ads budget, and landing page copywriting not included unless listed. Two revision rounds maximum. Additional versions and platform adaptations billed separately.</div></div></details>
+        </div>
+
+        <div class="luxury-card reveal reveal-delay-1">
+          <span class="luxury-card-eyebrow">Campaign 02</span>
+          <p class="luxury-card-name">Signature Estate Campaign</p>
+          <div class="luxury-card-price">$8,500+<sub>&nbsp;/ campaign</sub></div>
+          <p style="font-family:var(--font-body);font-size:14px;font-weight:300;color:#888;line-height:1.85;letter-spacing:0.01em;margin-bottom:20px;">The full-production campaign experience for estate-level properties. Begins with comprehensive campaign planning, then executes a premium lifestyle-driven production across multiple formats — delivering a multi-asset package that supports a high-value property launch across digital, social, and direct marketing channels. Built for properties where the presentation is part of the value story.</p>
+          <div class="luxury-divider"></div>
+          <details><summary class="pcard-accordion-trigger">Campaign Deliverables <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><ul class="svc-list"><li>Campaign planning</li><li>Premium film production</li><li>Lifestyle-driven creative coverage</li><li>Multi-format asset set</li><li>Agent intro or narrative-led cut</li><li>Premium delivery package for high-value launch</li></ul></div></details>
+          <details><summary class="pcard-accordion-trigger">Scope Protections <span class="acc-arrow">▼</span></summary>
+            <div class="pcard-accordion-body"><div class="scope-note">Multi-day production only if explicitly included. Talent, scriptwriting, advanced motion graphics, and developer assets scoped separately. Distribution support and paid promotion excluded unless bundled. Expanded stakeholder review beyond agreed decision-makers may extend timeline and cost.</div></div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       ECOSYSTEM FLYWHEEL
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">The System</span>
+        <h2>The Daily Grind<br/>Media Ecosystem</h2>
+      </div>
+
+      <div class="ecosystem-wrap">
+        <div class="ecosystem-diagram reveal">
+          <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Daily Grind Media Ecosystem Diagram">
+            <defs>
+              <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <radialGradient id="cg2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#BB725A" stop-opacity="0.12"/>
+                <stop offset="100%" stop-color="#BB725A" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="ag2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#BB725A" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#BB725A" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+            <circle cx="210" cy="210" r="170" fill="url(#cg2)"/>
+            <circle cx="210" cy="210" r="198" stroke="#1E1E1E" stroke-width="1"/>
+            <circle cx="210" cy="210" r="164" stroke="#BB725A" stroke-width="0.75" stroke-dasharray="4 8" opacity="0.25"/>
+            <path d="M 210 46 A 164 164 0 1 1 149 59" stroke="url(#ag2)" stroke-width="2" fill="none" stroke-linecap="round" filter="url(#glow2)"/>
+            <polygon points="149,59 138,44 162,48" fill="#BB725A" opacity="0.85"/>
+            <circle cx="210" cy="210" r="70" stroke="#BB725A" stroke-width="0.75" opacity="0.3"/>
+            <circle cx="210" cy="210" r="68" stroke="#2A2A2A" stroke-width="1" fill="#0D0D0D"/>
+            <text x="210" y="200" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="10" fill="#BB725A" letter-spacing="3" opacity="0.5">DGM</text>
+            <text x="210" y="216" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="17" fill="#F5F3F0" letter-spacing="2">ECOSYSTEM</text>
+            <text x="210" y="232" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="7.5" fill="#BB725A" letter-spacing="3" opacity="0.6">DAILY GRIND MEDIA</text>
+            <!-- Node 1: Brand Strategy — TOP -->
+            <circle cx="210" cy="46" r="7" fill="#BB725A" filter="url(#glow2)" opacity="0.95"/>
+            <circle cx="210" cy="46" r="12" stroke="#BB725A" stroke-width="0.75" fill="none" opacity="0.3"/>
+            <text x="210" y="14" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#F5F3F0" letter-spacing="2">BRAND</text>
+            <text x="210" y="27" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#BB725A" letter-spacing="2">STRATEGY</text>
+            <!-- Node 2: Professional Media — TOP-RIGHT -->
+            <circle cx="326" cy="94" r="6" fill="#BB725A" opacity="0.8"/>
+            <circle cx="326" cy="94" r="11" stroke="#BB725A" stroke-width="0.75" fill="none" opacity="0.25"/>
+            <text x="350" y="82" text-anchor="start" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#F5F3F0" letter-spacing="2">PROFESSIONAL</text>
+            <text x="350" y="95" text-anchor="start" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#D4937D" letter-spacing="2">MEDIA</text>
+            <!-- Node 3: Authority Content — RIGHT -->
+            <circle cx="374" cy="210" r="6" fill="#BB725A" opacity="0.72"/>
+            <circle cx="374" cy="210" r="11" stroke="#BB725A" stroke-width="0.75" fill="none" opacity="0.22"/>
+            <text x="392" y="204" text-anchor="start" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#F5F3F0" letter-spacing="2">AUTHORITY</text>
+            <text x="392" y="217" text-anchor="start" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#D4937D" letter-spacing="2">CONTENT</text>
+            <!-- Node 4: Listing Marketing — BOTTOM-RIGHT -->
+            <circle cx="326" cy="326" r="6" fill="#BB725A" opacity="0.64"/>
+            <circle cx="326" cy="326" r="11" stroke="#BB725A" stroke-width="0.75" fill="none" opacity="0.2"/>
+            <text x="344" y="320" text-anchor="start" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#F5F3F0" letter-spacing="2">LISTING</text>
+            <text x="344" y="333" text-anchor="start" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#D4937D" letter-spacing="2">MARKETING</text>
+            <!-- Node 5: Website & Funnels — BOTTOM -->
+            <circle cx="210" cy="374" r="6" fill="#BB725A" opacity="0.58"/>
+            <circle cx="210" cy="374" r="11" stroke="#BB725A" stroke-width="0.75" fill="none" opacity="0.18"/>
+            <text x="210" y="396" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#F5F3F0" letter-spacing="2">WEBSITE &amp;</text>
+            <text x="210" y="409" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#D4937D" letter-spacing="2">FUNNELS</text>
+            <!-- Node 6: Lead Generation — BOTTOM-LEFT -->
+            <circle cx="94" cy="326" r="6" fill="#BB725A" opacity="0.52"/>
+            <circle cx="94" cy="326" r="11" stroke="#BB725A" stroke-width="0.75" fill="none" opacity="0.16"/>
+            <text x="76" y="320" text-anchor="end" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#F5F3F0" letter-spacing="2">LEAD</text>
+            <text x="76" y="333" text-anchor="end" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#D4937D" letter-spacing="2">GENERATION</text>
+            <!-- Node 7: Client Acquisition — LEFT -->
+            <circle cx="46" cy="210" r="6" fill="#BB725A" opacity="0.48"/>
+            <circle cx="46" cy="210" r="11" stroke="#BB725A" stroke-width="0.75" fill="none" opacity="0.14"/>
+            <text x="28" y="204" text-anchor="end" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#F5F3F0" letter-spacing="2">CLIENT</text>
+            <text x="28" y="217" text-anchor="end" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#D4937D" letter-spacing="2">ACQUISITION</text>
+            <!-- Node 8: Long-Term Growth — TOP-LEFT (glows, connects back) -->
+            <circle cx="94" cy="94" r="7" fill="#BB725A" filter="url(#glow2)" opacity="0.9"/>
+            <circle cx="94" cy="94" r="13" stroke="#BB725A" stroke-width="1" fill="none" opacity="0.35"/>
+            <text x="76" y="72" text-anchor="end" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#BB725A" letter-spacing="2">LONG-TERM</text>
+            <text x="76" y="85" text-anchor="end" font-family="'Bebas Neue', sans-serif" font-size="10.5" fill="#BB725A" letter-spacing="2">BRAND GROWTH</text>
+          </svg>
+        </div>
+
+        <div class="ecosystem-copy reveal reveal-delay-1">
+          <p class="ecosystem-copy-lead">Every Service<br/>Supports the Next</p>
+          <p>The most successful real estate professionals do not rely on isolated marketing tactics. They build <strong>interconnected systems</strong> where every asset supports the next — and every investment compounds over time.</p>
+          <p>Brand strategy informs media production. Premium media drives authority content. Authority content powers listing marketing. Listings feed funnels. Funnels generate leads. Leads become clients. Clients become stories. Stories reinforce brand. And the cycle accelerates.</p>
+          <p>This is not a collection of services. It is a <strong>growth architecture</strong> — and every engagement with Daily Grind Media is a step inside it.</p>
+          <div class="ecosystem-axiom">
+            <span class="ecosystem-axiom-text">One system. Every asset working together. Authority that compounds.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       2. GROWTH SYSTEMS
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Growth Systems</span>
+        <h2>Systems Create<br/>Business Growth</h2>
+        <p class="section-intro"><strong>Media creates attention.</strong> Systems create business growth. These standalone and recurring growth offerings are designed to build infrastructure around your brand — capturing leads, nurturing prospects, and creating the conversion pathways that turn authority into new business.</p>
+      </div>
+
+      <div class="services-stack reveal">
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Authority Content Day</span><span class="svc-row-tag">Brand Content Production</span></div><div class="svc-row-right"><span class="svc-row-price">$2,500+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A focused, full-day production session designed to build out a complete monthly content batch in a single shoot. Ideal for agents who want to stay consistent without producing content week to week. One planning call aligns the shot list, messaging, and asset goals before production begins, ensuring every moment on set translates directly into usable, on-brand content.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>1 planning call</li><li>1 full production day</li><li>Monthly asset plan</li><li>Photo and video capture</li><li>Defined content batch for posts, reels, and site usage</li></ul><div class="scope-note">Deliverable count defined before shoot. No unlimited edits. No monthly management included. Extra filming needs a separate quote.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Team Content Day</span><span class="svc-row-tag">Team Brand Production</span></div><div class="svc-row-right"><span class="svc-row-price">$3,500+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A multi-person production day built for real estate teams that need consistent brand presence across multiple agents, leadership, and team culture. Covers both individual and team-wide content, creating a cohesive brand asset library that supports recruiting, client-facing marketing, and platform presence.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Multi-person content day</li><li>Broader capture plan</li><li>Team and brand assets</li><li>Monthly content batch</li></ul><div class="scope-note">Assumes approved shot list in advance. Capped participant count. One location unless quoted otherwise. Added agents billed as expanded scope.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Podcast Production</span><span class="svc-row-tag">Authority Content</span></div><div class="svc-row-right"><span class="svc-row-price">$850 / ep.</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">Professional production of a single podcast episode including editing, audio cleanup, video edit if filmed, and a finished export package ready for YouTube, Spotify, Apple Podcasts, and distribution. Podcast content is one of the highest-ROI authority assets a real estate professional can produce — creating a trust-building experience before the first client conversation.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Episode edit and audio cleanup</li><li>Video edit if filmed</li><li>Title card and export package</li></ul><div class="scope-note">Recording time cap defined in advance. No unlimited platform uploads. No show strategy included unless under monthly partnership.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Podcast + 5 Reels</span><span class="svc-row-tag">Authority Content + Distribution</span></div><div class="svc-row-right"><span class="svc-row-price">$1,500</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">One recorded podcast episode becomes both a long-form authority asset and five short-form clips formatted for social distribution. The combination of long-form depth and short-form reach maximizes the impact of a single recording session — creating multiple touchpoints from one conversation.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>1 fully edited podcast episode</li><li>5 short-form clips formatted for distribution</li><li>Basic packaging and captions</li></ul><div class="scope-note">Clip count fixed at 5. Captions and titles limited to agreed format. Additional shorts quoted separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Monthly Podcast Partnership</span><span class="svc-row-tag">Recurring Authority Production</span></div><div class="svc-row-right"><span class="svc-row-price">$3,000+ / mo.</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A recurring monthly engagement covering all elements of podcast production — from planning and recording support through episode editing, clip creation, and publishing support. Designed for real estate professionals committed to building a consistent, long-form authority channel in their market.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Monthly planning and strategy</li><li>Recurring episode production</li><li>Short-form clip package</li><li>Publishing support</li></ul><div class="scope-note">Includes fixed episode and clip quantity per month. Missed recording windows do not roll over automatically. Extra episodes billed separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Buyer Lead System</span><span class="svc-row-tag">Client Acquisition Infrastructure</span></div><div class="svc-row-right"><span class="svc-row-price">$2,500 setup</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A complete buyer-focused lead acquisition system built to capture, organize, and nurture inbound prospects. Covers funnel strategy, landing page structure, offer positioning, and form flow — creating a launch-ready setup that turns marketing attention into organized lead activity.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Funnel strategy</li><li>Page wireframe and structure</li><li>Offer positioning</li><li>Form flow setup</li><li>Launch-ready setup plan</li></ul><div class="scope-note">Does not include ongoing ad spend, CRM subscription costs, or custom automation beyond agreed scope.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Seller Lead System</span><span class="svc-row-tag">Client Acquisition Infrastructure</span></div><div class="svc-row-right"><span class="svc-row-price">$2,500 setup</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A seller-focused lead acquisition funnel built to capture listing inquiries, position your value proposition, and create a structured follow-up path. Designed to convert homeowner interest into booked seller consultations through clear positioning, an optimized landing page, and a defined lead capture flow.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Seller-focused funnel buildout</li><li>Positioning strategy</li><li>Landing page structure</li><li>Lead capture path</li><li>Campaign prep</li></ul><div class="scope-note">Offer pivots after approval treated as scope change. Does not include ongoing ad spend, CRM costs, or custom automation beyond agreed scope.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Monthly Optimization</span><span class="svc-row-tag">Funnel &amp; Campaign Refinement</span></div><div class="svc-row-right"><span class="svc-row-price">$1,200+ / mo.</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">Ongoing monthly refinement of your funnels, copy, and campaign performance. Includes review of results, identification of improvement areas, and execution of defined optimization tasks — keeping your lead systems performing as your market and audience evolve.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Monthly reporting review</li><li>Refinement recommendations</li><li>Copy and offer adjustments</li><li>Funnel optimization tasks</li></ul><div class="scope-note">Includes a defined monthly task allotment. Major rebuilds excluded. Ad spend not included.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Landing Page</span><span class="svc-row-tag">Conversion Infrastructure</span></div><div class="svc-row-right"><span class="svc-row-price">$1,500+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A single, conversion-focused landing page built to support a campaign, listing, offer, or lead magnet. Mobile-optimized, strategically structured, and launch-ready — built to convert attention into action within a defined scope.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>1 conversion-focused page</li><li>Mobile optimization</li><li>Copy guidance</li><li>Launch-ready implementation</li></ul><div class="scope-note">One page only. No full site architecture. Copy rewrites capped. Integrations limited to agreed tech stack.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Website</span><span class="svc-row-tag">Digital Brand Foundation</span></div><div class="svc-row-right"><span class="svc-row-price">$4,000+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A professionally designed, mobile-responsive website built to serve as the digital foundation for your brand. Covers core site strategy, design direction, defined page architecture, and launch handoff — creating a platform that supports marketing, lead capture, and long-term brand credibility.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Core site strategy and design direction</li><li>Approved page count build</li><li>Mobile-responsive implementation</li><li>Launch handoff</li></ul><div class="scope-note">Page count capped in proposal. Stock and media sourcing limited to agreed scope. Copywriting level defined upfront. Post-launch edits billed separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Luxury Website</span><span class="svc-row-tag">Premium Digital Presence</span></div><div class="svc-row-right"><span class="svc-row-price">$6,500+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">An elevated, custom-designed website built for luxury agents, brokerages, and professionals where digital presentation directly reflects brand perception. Features custom visual direction, an elevated design layer, and an expanded presentation experience — built to match the caliber of the properties and clients you represent.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Custom visual direction</li><li>Elevated page design</li><li>Expanded presentation layer</li><li>Premium launch-ready site</li></ul><div class="scope-note">Includes higher design depth but capped by approved sitemap and revision rounds. Custom features and integrations quoted separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Paid Ads Setup</span><span class="svc-row-tag">Campaign Launch</span></div><div class="svc-row-right"><span class="svc-row-price">$1,000</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">Initial campaign build covering targeting framework, ad structure, and launch preparation. Creates the infrastructure needed to run a focused paid acquisition campaign without the ongoing management component — ideal for agents who want to launch quickly with a solid foundation.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Initial campaign build</li><li>Targeting framework</li><li>Ad structure setup</li><li>Launch prep</li></ul><div class="scope-note">No ongoing management included. No creative production included unless bundled. One approved offer per setup.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Paid Ads Management</span><span class="svc-row-tag">Ongoing Campaign Optimization</span></div><div class="svc-row-right"><span class="svc-row-price">$1,500+ / mo.</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">Ongoing campaign management covering optimization, monitoring, testing, and monthly reporting. Keeps your paid acquisition campaigns performing as market conditions, audience behavior, and offer positioning evolve over time.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Ongoing optimization and monitoring</li><li>Testing guidance</li><li>Monthly reporting</li><li>Recurring adjustments</li></ul><div class="scope-note">Ad spend excluded. Creative production limited unless specified. Platform expansion beyond agreed channels is added scope.</div></div></div></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       3. MEDIA SERVICES
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Media Services</span>
+        <h2>Exceptional<br/>Media Elevates<br/>Everything</h2>
+        <p class="section-intro">Exceptional visuals elevate perception, increase trust, and improve marketing performance at every stage of the client journey. <strong>From brand photography to cinematic property films</strong>, every service is designed to position you and your listings at the level your market demands.</p>
+      </div>
+
+      <div class="services-stack reveal">
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Agent Brand Photography</span><span class="svc-row-tag">Personal Brand Imagery</span></div><div class="svc-row-right"><span class="svc-row-price">$850+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A focused brand photography session designed to give you a library of polished, on-brand images for use across social media, websites, marketing materials, and listing presentations. Every image is edited to reflect a premium, consistent brand identity that supports your market positioning.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Up to 90-minute session</li><li>1 location, 2 outfits</li><li>20 edited images</li><li>Web and social usage delivery</li></ul><div class="scope-note">1 location only. Hair, makeup, and styling not included. 1 revision round on final selects. Additional retouching billed separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Personal Branding Session</span><span class="svc-row-tag">Extended Brand Imagery</span></div><div class="svc-row-right"><span class="svc-row-price">$1,500+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">An extended personal branding session producing a diverse image library across multiple environments and contexts. Designed for agents and professionals who need a deeper content reserve — covering editorial, business, lifestyle, and environmental storytelling that supports a full content strategy.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Up to 3-hour session</li><li>Up to 2 locations, up to 4 outfits</li><li>40 edited images</li><li>Mixed editorial and business-use imagery</li></ul><div class="scope-note">Travel beyond local zone is extra. Client responsible for wardrobe and talent readiness. 1 revision round on selects. Extra edit requests billed separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Listing Photography</span><span class="svc-row-tag">Property Imagery</span></div><div class="svc-row-right"><span class="svc-row-price">$500+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">Professional interior and exterior listing photography delivering a polished, complete image gallery ready for MLS submission, marketing materials, and digital distribution. Edited to present the property accurately and compellingly within the scope of a standard production window.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Standard interior and exterior coverage</li><li>Edited image gallery</li><li>MLS and high-res export sets</li><li>Delivery based on property size</li></ul><div class="scope-note">Assumes standard occupied or staged home readiness. No excessive decluttering or staging included. 1 trip only. Reshoots billed separately unless caused by production error.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Luxury Listing Photography</span><span class="svc-row-tag">Premium Property Imagery</span></div><div class="svc-row-right"><span class="svc-row-price">$950+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">Extended, premium photography coverage designed for luxury properties where image quality, hero-shot composition, and detail work directly influence buyer perception. Every image is edited to an elevated standard with a focus on presentation-ready marketing assets for high-value listings.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Extended interior and exterior coverage</li><li>Hero-image focused composition</li><li>Detail shots</li><li>Premium edit set</li><li>MLS and marketing-ready exports</li></ul><div class="scope-note">Assumes one production window. Twilight not included unless added. Styling, staging, and vendor coordination not included. 1 revision round on retouch notes.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Cinematic Listing Film</span><span class="svc-row-tag">Property Film Production</span></div><div class="svc-row-right"><span class="svc-row-price">$1,750+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A cinematically produced property film that goes beyond a walkthrough — capturing the spatial experience, character, and desirability of a home through intentional filmmaking. Delivered as a horizontal master and short teaser cut, with licensed music and professional color grading, ready for social, web, and campaign distribution.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>1 edited property film</li><li>Licensed music</li><li>Professional color grading</li><li>Horizontal master</li><li>Short teaser cut</li></ul><div class="scope-note">Assumes one shoot day and one property. No on-camera scripting or interviews unless added. 2 revision rounds. Extra deliverables quoted separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Luxury Property Film</span><span class="svc-row-tag">Elevated Property Campaign Film</span></div><div class="svc-row-right"><span class="svc-row-price">$3,500+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A premium, concept-driven property film built for listings that demand elevated creative execution. Begins with creative planning and concept development, then delivers a full production experience — resulting in a horizontal master, a vertical cut-down for social, and licensed music. Built to serve as the centerpiece of a luxury property campaign.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Creative planning</li><li>Premium property film</li><li>Elevated edit</li><li>Horizontal master and vertical cut-down</li><li>Licensed music</li></ul><div class="scope-note">Assumes one main property and one approved concept. Lifestyle talent not included unless quoted. 2 revision rounds. Added scenes and production days billed separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Drone Photo / Video Add-On</span><span class="svc-row-tag">Aerial Coverage</span></div><div class="svc-row-right"><span class="svc-row-price">$350</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">Aerial stills and motion clips captured during an existing production session, integrated into the final photo gallery or property film. Adds context, scale, and a premium visual layer that ground-level coverage alone cannot achieve.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Aerial stills and/or motion clips</li><li>Integration into existing gallery or film</li></ul><div class="scope-note">Subject to weather, airspace, and FAA compliance. Substitute credit or reschedule offered if flight restrictions apply.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Twilight Add-On</span><span class="svc-row-tag">Exterior Twilight Coverage</span></div><div class="svc-row-right"><span class="svc-row-price">$350</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">Exterior twilight photography captured during the golden hour window for use as hero marketing images. Twilight shots consistently outperform standard daytime exteriors in engagement and perceived value — creating an immediate, compelling first impression across listing portals and marketing campaigns.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Exterior twilight image set for hero marketing use</li></ul><div class="scope-note">Requires a separate timing window. Weather-dependent. Includes twilight coverage only, not a full second shoot expansion.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Open House Coverage</span><span class="svc-row-tag">Event Documentation</span></div><div class="svc-row-right"><span class="svc-row-price">$850+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">On-site coverage of an open house event, capturing the energy, environment, and client interactions in a format that can be repurposed for social media, follow-up marketing, and community presence. Produces both still photography and short-form video content from a single event window.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>Up to 90 minutes on-site</li><li>Event photography</li><li>Short-form clips</li><li>Recap asset set</li></ul><div class="scope-note">No live posting or community management included. No guest releases handled by DGM. Coverage beyond allotted time billed hourly.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Community Highlight Video</span><span class="svc-row-tag">Market Area Storytelling</span></div><div class="svc-row-right"><span class="svc-row-price">$1,250+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A branded short-form video highlighting a neighborhood, community, or market area — positioned to demonstrate local expertise and attract both buyers considering the area and sellers looking for an agent who genuinely knows their community. One of the most effective trust-building content assets for geographic farming.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>1 branded area video</li><li>B-roll capture</li><li>Edited master for web and social use</li></ul><div class="scope-note">Assumes one neighborhood focus. No multi-day citywide coverage. On-camera host segments optional and quoted separately.</div></div></div></details>
+
+        <details class="svc-row"><summary><div class="svc-row-left"><span class="svc-row-name">Client Testimonial Film</span><span class="svc-row-tag">Social Proof Content</span></div><div class="svc-row-right"><span class="svc-row-price">$1,000+</span><span class="svc-row-arrow">▼</span></div></summary>
+          <div class="svc-row-body"><div><span class="svc-body-col-label">Description</span><p class="svc-description">A professionally produced interview-led testimonial film featuring a past client sharing their experience working with you. Structured to feel genuine and emotionally resonant rather than scripted — building social proof in a format that outperforms text reviews across every platform and client stage.</p></div><div><span class="svc-body-col-label">Deliverables &amp; Scope</span><ul class="svc-list"><li>1 interview-led testimonial film</li><li>Interview setup and direction</li><li>B-roll support</li><li>Edited final cut</li></ul><div class="scope-note">Assumes one interview subject and one location. Client handles scheduling and permissions. 2 revision rounds maximum.</div></div></div></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       WHY DAILY GRIND MEDIA
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">The Distinction</span>
+        <h2>Why Daily<br/>Grind Media</h2>
+        <p class="section-intro">There is a meaningful difference between a media company and a strategic growth partner. <strong>The distinction is not just in the deliverables — it's in the relationship, the thinking, and the outcomes.</strong></p>
+      </div>
+
+      <div class="why-grid reveal">
+        <div class="why-card why-card-traditional">
+          <span class="why-card-label why-card-label-trad">The Alternative</span>
+          <p class="why-card-title why-card-title-trad">Traditional<br/>Media Company</p>
+          <ul class="why-list why-list-trad">
+            <li>Produces media</li>
+            <li>Project-based relationship</li>
+            <li>Delivers files</li>
+            <li>Focused on individual shoots</li>
+            <li>Transactional</li>
+          </ul>
+        </div>
+        <div class="why-card why-card-dgm">
+          <span class="why-card-label why-card-label-dgm">Daily Grind Media</span>
+          <p class="why-card-title why-card-title-dgm">Strategic Growth<br/>Partner</p>
+          <ul class="why-list why-list-dgm">
+            <li>Strategic growth partner</li>
+            <li>Builds authority</li>
+            <li>Creates long-term marketing assets</li>
+            <li>Supports business growth</li>
+            <li>Develops client acquisition systems</li>
+            <li>Focused on long-term partnerships</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       5. HOW WE PROTECT QUALITY
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Standards &amp; Process</span>
+        <h2>How We<br/>Protect Quality</h2>
+        <p class="section-intro">Premium creative work requires <strong>clearly defined expectations, efficient communication, and structured production.</strong> These practices protect the quality of your deliverables, keep projects on schedule, and ensure every engagement reflects the premium standard Daily Grind Media is built around.</p>
+      </div>
+
+      <div class="protection-grid reveal">
+        <div class="protection-tile"><span class="protection-tile-index">I</span><p class="protection-tile-title">Defined Deliverables</p><p class="protection-tile-body">Every engagement includes exact deliverable counts and clearly listed exclusions — so you always know what is included and what falls outside the agreement. Vague phrases like "ongoing content" are never used.</p></div>
+        <div class="protection-tile"><span class="protection-tile-index">II</span><p class="protection-tile-title">Two Revision Rounds</p><p class="protection-tile-body">Each major deliverable includes up to two rounds of revision. Additional revision rounds are billed at a stated rate. This protects production timelines and maintains the integrity of the creative process.</p></div>
+        <div class="protection-tile"><span class="protection-tile-index">III</span><p class="protection-tile-title">Consolidated Feedback</p><p class="protection-tile-body">Client feedback must be consolidated into one round per review window. Fragmented or sequential notes prevent version control and delay timelines. One clear, complete round per deliverable keeps projects moving.</p></div>
+        <div class="protection-tile"><span class="protection-tile-index">IV</span><p class="protection-tile-title">Communication Standards</p><p class="protection-tile-body">All project communication is managed through one agreed channel with a defined response window. A single communication structure keeps everything organized and accountable.</p></div>
+        <div class="protection-tile"><span class="protection-tile-index">V</span><p class="protection-tile-title">Change Orders</p><p class="protection-tile-body">Any request that materially adds time, complexity, or recurring responsibility is quoted as a formal change order before work begins. No scope expansion happens without written approval.</p></div>
+        <div class="protection-tile"><span class="protection-tile-index">VI</span><p class="protection-tile-title">Monthly Deliverable Expiration</p><p class="protection-tile-body">Unused monthly deliverables expire at the end of the service period unless otherwise agreed in writing. This ensures consistent production cadence and prevents backlog accumulation.</p></div>
+        <div class="protection-tile"><span class="protection-tile-index">VII</span><p class="protection-tile-title">Additional Production Days</p><p class="protection-tile-body">All engagements include a defined production window. Additional shoot days, extended sessions, or expanded locations beyond the agreed scope are quoted separately before scheduling.</p></div>
+        <div class="protection-tile"><span class="protection-tile-index">VIII</span><p class="protection-tile-title">Additional Concepts</p><p class="protection-tile-body">Each creative engagement is built around one approved concept direction. Requests for alternative concepts or additional versions are treated as separate scope and quoted accordingly.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- ══════════════════════════════════
+       FAQ
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Frequently Asked Questions</span>
+        <h2>Common<br/>Questions</h2>
+      </div>
+
+      <div class="faq-stack reveal">
+
+        <details class="faq-row">
+          <summary><span class="faq-question">How quickly can we get started?</span><span class="faq-arrow">▼</span></summary>
+          <div class="faq-answer">Most projects can begin within one to two weeks of a signed agreement and initial deposit. Monthly partnership clients typically begin with a discovery and strategy call in the first week, followed by their first production session in the second or third week. Timeline can vary depending on scheduling availability, project complexity, and how quickly assets and approvals are provided.</div>
+        </details>
+
+        <details class="faq-row">
+          <summary><span class="faq-question">How many revisions are included?</span><span class="faq-arrow">▼</span></summary>
+          <div class="faq-answer">Each major deliverable includes up to two rounds of revision. A revision round means one complete, consolidated set of notes submitted at the same time — not a series of sequential small requests. This structure keeps projects on schedule and ensures the creative quality remains consistent throughout. Additional revision rounds beyond the included two are available and billed at a flat rate.</div>
+        </details>
+
+        <details class="faq-row">
+          <summary><span class="faq-question">Can packages be customized?</span><span class="faq-arrow">▼</span></summary>
+          <div class="faq-answer">Yes. While the service guide presents defined tiers and offerings, most engagements are customized to some degree based on your market, goals, and production needs. During our discovery process, we identify the right combination of services for your specific situation and build a proposal around it. If you have a specific need not listed in the guide, we are happy to discuss it.</div>
+        </details>
+
+        <details class="faq-row">
+          <summary><span class="faq-question">Can monthly partnerships be upgraded?</span><span class="faq-arrow">▼</span></summary>
+          <div class="faq-answer">Yes. Monthly partnerships can be expanded or upgraded at the start of a new cycle. If your business grows, your team expands, or your content needs increase, we can adjust the scope of your partnership accordingly. Upgrades are structured as a new agreement rather than ad hoc additions mid-cycle, which keeps deliverables and expectations clear for both parties.</div>
+        </details>
+
+        <details class="faq-row">
+          <summary><span class="faq-question">Do unused deliverables roll over?</span><span class="faq-arrow">▼</span></summary>
+          <div class="faq-answer">Unused monthly deliverables expire at the end of the service period unless otherwise agreed in writing at the start of the engagement. This policy exists to maintain production consistency and prevent backlogs that compromise quality. If you anticipate needing more flexibility in scheduling, we can discuss how to structure your partnership to accommodate that in advance.</div>
+        </details>
+
+        <details class="faq-row">
+          <summary><span class="faq-question">Can you travel outside San Diego?</span><span class="faq-arrow">▼</span></summary>
+          <div class="faq-answer">Yes. We are available for travel to support clients outside of the San Diego area for both production and partnership engagements. Travel fees including transportation, accommodation, and time are quoted separately and included in any out-of-area proposal. For recurring partnerships, travel logistics are discussed and planned as part of the agreement structure.</div>
+        </details>
+
+        <details class="faq-row">
+          <summary><span class="faq-question">Who owns the final media?</span><span class="faq-arrow">▼</span></summary>
+          <div class="faq-answer">Upon receipt of final payment, clients receive full usage rights to all delivered media assets for agreed purposes including marketing, social media, websites, and listing presentations. Specific licensing terms are outlined in the project agreement. Raw files and unedited materials remain the property of Daily Grind Media unless otherwise negotiated and specified in writing.</div>
+        </details>
+
+        <details class="faq-row">
+          <summary><span class="faq-question">How does billing work?</span><span class="faq-arrow">▼</span></summary>
+          <div class="faq-answer">Project-based services require a deposit to confirm the booking, with the remaining balance due upon delivery of final assets. Monthly partnership clients are billed on the first of each month for that month's service cycle. All billing details, payment methods, and due dates are outlined in the client agreement before work begins. We do not begin production work without a signed agreement and confirmed deposit.</div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+
+  <!-- FINAL CTA -->
+  <section class="closing">
+    <div class="container">
+      <div class="copper-rule-short" style="margin: 0 auto 44px;"></div>
+
+      <div class="closing-copy reveal">
+        <p>"The most successful real estate professionals don't simply market listings.</p>
+        <p>They build brands. They create authority. They establish trust before the first conversation.</p>
+        <p>Daily Grind Media exists to help ambitious professionals build a market presence that compounds over time — through premium media, strategic content, and proven growth systems."</p>
+      </div>
+
+      <div class="closing-lockup reveal reveal-delay-1">
+        <span class="corner-tr"></span>
+        <span class="corner-bl"></span>
+        <p class="closing-lockup-text">Daily Grind Media</p>
+        <p class="closing-lockup-sub">Authority Starts Here</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="copper-rule"></div>
+  <footer>
+    <div class="container">
+      <span class="footer-wordmark">Daily Grind Media</span>
+      <p class="footer-copy">Real Estate Media &amp; Marketing Guide</p>
+    </div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+    window.addEventListener('load', () => {
+      revealEls.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); });
+    });
+  </script>
+</body>
+</html>
